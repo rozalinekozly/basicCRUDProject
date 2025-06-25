@@ -2,21 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Message Lookup</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Read Message from Supabase</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Lookup a Message</h1>
-    <input type="number" id="idInput" placeholder="Enter number (1–10)" min="1" max="10" />
-    <button onclick="fetchMessage()">Fetch</button>
-    
-    <div class="result" id="resultBox" style="display:none;">
-      <textarea id="msgBox" rows="4" cols="40"></textarea>
-      <button onclick="updateMessage()">Update</button>
-    </div>
-  </div>
+  <h1>Message with ID = 1:</h1>
+  <p id="output">Loading...</p>
+
   <script type="module" src="script.js"></script>
 </body>
 </html>
