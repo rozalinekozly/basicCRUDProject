@@ -1,11 +1,10 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
 const supabaseUrl = 'https://ldignxlbttqoqcvoycbj.supabase.co'
-const supabaseKey = process.env.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkaWdueGxidHRxb3Fjdm95Y2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4NTk3NDcsImV4cCI6MjA2NjQzNTc0N30.6kK3C9SI6GCqggzpf8qIPB31_PMIvs3ToPRpkjZFdII
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxkaWdueGxidHRxb3Fjdm95Y2JqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4NTk3NDcsImV4cCI6MjA2NjQzNTc0N30.6kK3C9SI6GCqggzpf8qIPB31_PMIvs3ToPRpkjZFdII'
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-// Now you can use supabase in your functions:
 window.fetchMessage = async function () {
   const id = document.getElementById('idInput').value
   if (!id) return alert('Please enter a number.')
@@ -13,10 +12,11 @@ window.fetchMessage = async function () {
   const { data, error } = await supabase
     .from('messages')
     .select('my_msg')
-    .eq('id', 1)
+    .eq('id', id)
     .single()
 
   if (error || !data) {
+    console.error(error)
     alert('Roza: Message not found.')
     return
   }
@@ -35,6 +35,7 @@ window.updateMessage = async function () {
     .eq('id', id)
 
   if (error) {
+    console.error(error)
     alert('Update failed.')
   } else {
     alert('Message updated!')
