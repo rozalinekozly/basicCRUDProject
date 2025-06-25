@@ -14,6 +14,7 @@ async function getMessage() {
   if (error ) {
     console.error('Error fetching data:', error);
       } else {
+    output.textContent = data;
         console.log('Fetched data:', data);
       }
     }
