@@ -10,14 +10,12 @@ async function getMessage() {
     .from('messages')
     .select('my_msg')
     .eq('id', 1)
-    .single()
-
-  const output = document.getElementById('output')
-  if (error || !data) {
-    output.textContent = '❌ Roza: Message not found.'
-  } else {
-    output.textContent = '✅ ${data.my_msg}'
-  }
-}
+    
+  if (error ) {
+    console.error('Error fetching data:', error);
+      } else {
+        console.log('Fetched data:', data);
+      }
+    }
 
 getMessage();
