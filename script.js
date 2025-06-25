@@ -20,4 +20,4 @@ async function getMessage() {
   }
 }
 
-getMessage()
+getMessage();
