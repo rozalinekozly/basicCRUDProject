@@ -17,8 +17,13 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
       .eq('id', id)
       .single();
 
-    if (error || !data) {
+    if ( !data) {
       alert('Roza: Message not found.');
+      return;
+    }
+
+    if(error) {
+       alert('ERROR');
       return;
     }
 
