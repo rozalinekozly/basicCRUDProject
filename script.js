@@ -14,7 +14,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
     const { data, error } = await supabase
       .from('messages') // your actual table
       .select('my_msg')
-      .eq('id', id)
+      .eq('id', 1)  // hardcore change to see if the db connected right
       .single();
 
     if ( !data) {
