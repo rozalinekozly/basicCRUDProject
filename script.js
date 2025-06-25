@@ -16,7 +16,7 @@ async function getMessage() {
   if (error || !data) {
     output.textContent = '❌ Roza: Message not found.'
   } else {
-    output.textContent = `✅ ${data.my_msg}`
+    output.textContent = '✅ ${data.my_msg}'
   }
 }
 
