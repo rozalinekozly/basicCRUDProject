@@ -1,46 +1,39 @@
-זהו הפרויקט הראשון שלי שבו חיברתי בין אתר פרונטאנד (HTML, CSS, JS) לבין מסד נתונים בענן באמצעות Supabase.
+Project Overview
+This is my first project connecting a frontend website (HTML, CSS, JS) to a cloud database using Supabase.
 
-המטרה הייתה לבנות פרויקט CRUD פשוט (יצירה, קריאה, עדכון ומחיקה) שבו ניתן:
+The goal was to build a basic CRUD application (Create, Read, Update, Delete) that allows:
 
-לקרוא הודעה שמורה מהמסד
+Reading a saved message from the database
 
-לעדכן את ההודעה בלחיצת כפתור
+Updating the message with a button click
 
-לראות את הכל מתרחש בזמן אמת דרך אתר אונליין
+Viewing all changes live through an online interface
 
-האתר פורסם דרך Vercel, כך שניתן לגשת אליו מכל מקום בעולם
+The site is deployed via Vercel, making it accessible from anywhere.
 
-| טכנולוגיה           | תיאור                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------- |
-| **Supabase**        | שירות Database בענן שמבוסס על PostgreSQL. יצרתי בו טבלה בשם `messages` עם שדה `id` ושדה `my_msg`. |
-| **Vercel**          | כלי לפרסום והקרנה של אתרי פרונטאנד. מחובר אוטומטית ל־GitHub.                                      |
-| **Git & GitHub**    | לניהול גרסאות הקוד והעלאת הקבצים לענן.                                                            |
-| **HTML / CSS / JS** | האתר עצמו נבנה בקבצים פשוטים שהתחברו אל ה־DB בעזרת ספריית Supabase JS.                            |
+Tools and Technologies
+Technology	Description
+Supabase	A cloud-based database service built on PostgreSQL. I created a table called messages with two fields: id and my_msg.
+Vercel	A platform for deploying frontend projects. Automatically connected to GitHub for smooth updates.
+Git & GitHub	Used for version control and pushing code to the cloud.
+HTML / CSS / JS	A simple static site that connects to the database using the Supabase JS client library.
 
-דברים שלמדתי במהלך העבודה
-איך לחבר קובץ JavaScript למסד נתונים בענן ולשלוח אליו שאילתות כמו select, update, insert.
+What I Learned
+How to connect a JavaScript file to a cloud database and run queries like SELECT, UPDATE, and INSERT.
 
-איך להשתמש במפתח API מתוך Supabase ולכתוב קוד בטוח.
+How to use a Supabase API key securely in the code.
 
-איך מוודאים שיש הרשאות מתאימות במסד (Policies), אחרת הקריאה או העדכון לא יעבדו.
+How to configure Supabase Policies to ensure read and write permissions — without them, queries won’t work.
 
-איך לפרוס אתר ל־Vercel דרך GitHub ולשמור על עדכניות הקוד בכל Push.
+How to deploy a site to Vercel through GitHub and keep the site updated with every code push.
 
+Challenges I Faced
+At first, I couldn’t read the message from the database. Eventually, I realized I needed to activate a SELECT policy in Supabase for unauthenticated users.
 
-אתגרים שנתקלתי בהם
-בהתחלה לא ראיתי את ההודעה מה־DB — הבנתי שהייתי צריכה להפעיל Policy מתאימה ב־Supabase כדי לאפשר גישה לקריאה (SELECT) גם ללא משתמש רשום.
+The UPDATE operation didn’t work until I confirmed that the anon role had explicit permission.
 
-העדכון לא עבד — עד שווידאתי שגם לפעולת UPDATE יש הרשאה פתוחה תחת Role anon.
+I initially struggled to understand how the files were connected — especially how JS communicates with Supabase using the API key.
 
-לא הבנתי מה הקשר בין הקבצים — רק אחרי כמה ניסיונות הצלחתי להבין איך JS מדבר עם Supabase ומה בדיוק עושה ה־API key.
+Deployment to Vercel only worked properly once I ensured index.html was in the root directory.
 
-איך לפרוס ל־Vercel בצורה אוטומטית דרך Git. הצלחתי רק אחרי שווידאתי שיש index.html בתיקיית השורש של הפרויקט.
-
-קצת בילבול בין קוד JavaScript רגיל לבין שימוש ב־modules ו־import — למדתי שצריך לשים type="module" בסקריפט כדי שה־import יעבוד.
-
-
-📦 basicCRUDProject
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+I also encountered confusion between plain JavaScript and using modules. I learned that to use import, I must include type="module" in the script tag.
